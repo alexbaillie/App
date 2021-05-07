@@ -38,14 +38,8 @@ class FirstFragment : Fragment() {
             findNavController().navigate(R.id.action_FirstFragment_to_SecondFragment)
         }
 
-
-        binding.buttonFirst.setOnClickListener {
-            findNavController().navigate(R.id.action_FirstFragment_to_SecondFragment)
-        }
-
-        val profile: ImageButton = findViewById(R.id.button_send)
-        binding.profile.setOnClickListener {
-            // Do something in response to button click
+        binding.imageButton4.setOnClickListener {
+            findNavController().navigate(R.id.action_FirstFragment_to_Profile)
         }
     }
 
