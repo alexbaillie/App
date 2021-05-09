@@ -10,11 +10,34 @@ import androidx.navigation.ui.setupActionBarWithNavController
 import android.view.Menu
 import android.view.MenuItem
 import com.example.app.databinding.ActivityMainBinding
+import android.content.Context
+import android.content.res.Resources
+import android.graphics.Bitmap
+import android.graphics.BitmapFactory
+import android.graphics.Canvas
+import android.graphics.Color
+import android.graphics.Paint
+import android.graphics.PorterDuff
+import android.graphics.PorterDuffXfermode
+import android.graphics.Rect
+import android.graphics.RectF
+import android.view.View
+import android.widget.Button
+import android.widget.ImageButton
+import android.widget.ImageView
+import android.widget.RelativeLayout
+import java.io.File
+
 
 class MainActivity : AppCompatActivity() {
 
     private lateinit var appBarConfiguration: AppBarConfiguration
     private lateinit var binding: ActivityMainBinding
+    private lateinit var mContext: Context
+    private lateinit var mResources: Resources
+    private lateinit var mRelativeLayout: RelativeLayout
+    private lateinit var mIMGBtn: ImageButton
+    private lateinit var mBitmap: Bitmap
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -32,6 +55,12 @@ class MainActivity : AppCompatActivity() {
             Snackbar.make(view, "Hello World", Snackbar.LENGTH_LONG)
                 .setAction("Action", null).show()
         }
+
+
+
+        mIMGBtn = findViewById(R.id.imageButton)
+        var bitmapResourceID: Int = R.drawable.download
+
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
