@@ -30,7 +30,8 @@ class Profile : Fragment(){
         super.onViewCreated(view, savedInstanceState)
 
         binding.buttonSecond.setOnClickListener {
-            findNavController().navigate(R.id.action_SecondFragment_to_FirstFragment)
+            // action is actually the inverse of its name
+            findNavController().navigate(R.id.action_FirstFragment_to_Profile)
         }
     }
 

@@ -37,6 +37,6 @@
 
         <action
             android:id="@+id/action_FirstFragment_to_Profile"
-            app:destination="@id/Profile" />
+            app:destination="@id/FirstFragment" />
     </fragment>
 </navigation>
