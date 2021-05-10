@@ -1,5 +1,6 @@
 package com.example.app
 
+import android.app.Dialog
 import android.os.Bundle
 import com.google.android.material.snackbar.Snackbar
 import androidx.appcompat.app.AppCompatActivity
@@ -56,10 +57,6 @@ class MainActivity : AppCompatActivity() {
                 .setAction("Action", null).show()
         }
 
-
-
-        mIMGBtn = findViewById(R.id.imageButton)
-        var bitmapResourceID: Int = R.drawable.download
 
     }
 
