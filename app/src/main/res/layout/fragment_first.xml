@@ -20,14 +20,12 @@
     <TextView
         android:id="@+id/textview_first"
         android:gravity="center"
+        android:layout_gravity="center"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="307dp"
         android:text="@string/hello_first_fragment"
-        app:layout_constraintBottom_toTopOf="@+id/imageButton"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/imageView2"
+        android:layout_marginBottom="50dp"
         app:layout_constraintVertical_bias="0.884" />
 
     <ImageButton
