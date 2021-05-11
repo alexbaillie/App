@@ -8,6 +8,7 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.example.app.databinding.ProfileBinding
 import java.io.File
+import java.io.FileWriter
 import java.io.PrintWriter
 
 
@@ -34,17 +35,18 @@ class Profile : Fragment(){
 
         binding.button.setOnClickListener {
 
-            val userName: String = binding.Name.toString()
-            val email: String = binding.Email.toString()
-            val password: String = binding.Password.toString()
+            val userName: String = binding.Name.text.toString()
+            val email: String = binding.Email.text.toString()
+            val password: String = binding.Password.text.toString()
 
 
             val file: File = File(activity?.applicationContext?.filesDir,  "userData.txt")
-            val writer: PrintWriter = PrintWriter(file)
+            val writer: FileWriter = FileWriter(file)
 
-            writer.write(userName)
-            writer.write(email)
-            writer.write(password)
+            writer.write("$userName ")
+            writer.write("$email ")
+            writer.write("$password\n")
+            writer.close()
 
             // action is actually the inverse of its name
             findNavController().navigate(R.id.action_FirstFragment_to_Profile)
