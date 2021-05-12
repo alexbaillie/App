@@ -16,4 +16,5 @@
     <string name="Email">E-Mail:</string>
     <string name="Password">Password:</string>
     <string name="Done">Register</string>
+    <string name="login">Log In</string>
 </resources>

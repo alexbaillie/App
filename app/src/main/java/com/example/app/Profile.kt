@@ -1,5 +1,6 @@
 package com.example.app
 
+import android.app.Application
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -9,8 +10,10 @@ import androidx.navigation.fragment.findNavController
 import com.example.app.databinding.ProfileBinding
 import java.io.File
 import java.io.FileWriter
-import java.io.PrintWriter
 
+class MyApplication : Application() {
+    var reg: Boolean? = false
+}
 
 class Profile : Fragment(){
 
@@ -47,6 +50,9 @@ class Profile : Fragment(){
             writer.write("$email ")
             writer.write("$password\n")
             writer.close()
+            MyApplication.reg
+
+
 
             // action is actually the inverse of its name
             findNavController().navigate(R.id.action_FirstFragment_to_Profile)
@@ -58,3 +64,4 @@ class Profile : Fragment(){
         _binding = null
     }
 }
+
