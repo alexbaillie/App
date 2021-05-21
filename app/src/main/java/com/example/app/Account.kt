@@ -36,12 +36,12 @@ class Account(name: String?, email: String?, password: String?){
 
     }
 
-    fun logIn(email: String, password: String): Boolean {
+    fun logIn(email: String, password: String) {
        val user = db.collection("users")
            .whereEqualTo("Email", email)
            .whereEqualTo("Password", password).get()
            .addOnSuccessListener {
-               
+               userRegistered = true
            }
            .addOnFailureListener { exception ->
                Log.d(TAG, "Error getting documents: ", exception)
