@@ -1,6 +1,6 @@
 package com.example.app
 
-import android.app.Application
+
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -8,14 +8,13 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.example.app.databinding.ProfileBinding
-import java.io.File
-import java.io.FileWriter
+import com.google.firebase.firestore.ktx.firestore
+import com.google.firebase.ktx.Firebase
 
-class MyApplication : Application() {
-    var reg: Boolean? = false
-}
+
 
 class Profile : Fragment(){
+
 
     private var _binding: ProfileBinding? = null
 
@@ -42,16 +41,8 @@ class Profile : Fragment(){
             val email: String = binding.Email.text.toString()
             val password: String = binding.Password.text.toString()
 
-
-            val file: File = File(activity?.applicationContext?.filesDir,  "userData.txt")
-            val writer: FileWriter = FileWriter(file)
-
-            writer.write("$userName ")
-            writer.write("$email ")
-            writer.write("$password\n")
-            writer.close()
-            MyApplication.reg
-
+            val newUser = Account(userName, email, password)
+            newUser.register()
 
 
             // action is actually the inverse of its name

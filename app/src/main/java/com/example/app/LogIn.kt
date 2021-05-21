@@ -1,21 +1,20 @@
 package com.example.app
 
+
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
-import com.example.app.databinding.FragmentFirstBinding
-import android.view.MenuItem
-import android.widget.ImageButton
+import com.example.app.databinding.LoginBinding
 
-/**
- * A simple [Fragment] subclass as the default destination in the navigation.
- */
-class FirstFragment : Fragment() {
 
-    private var _binding: FragmentFirstBinding? = null
+
+
+class LogIn : Fragment(){
+
+    private var _binding: LoginBinding? = null
 
     // This property is only valid between onCreateView and
     // onDestroyView.
@@ -26,7 +25,7 @@ class FirstFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
 
-        _binding = FragmentFirstBinding.inflate(inflater, container, false)
+        _binding = LoginBinding.inflate(inflater, container, false)
         return binding.root
 
     }
@@ -34,12 +33,15 @@ class FirstFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        binding.button.setOnClickListener {
 
-        binding.imageButton.setOnClickListener {
-            findNavController().navigate(R.id.action_FirstFragment_to_Profile)
-        }
-        binding.button2.setOnClickListener {
-            findNavController().navigate(R.id.action_FirstFragment_to_logIn)
+            val email: String = binding.Email.text.toString()
+            val password: String = binding.Password.text.toString()
+
+
+
+            // action is actually the inverse of its name
+            findNavController().navigate(R.id.action_logIn_to_FirstFragment)
         }
     }
 
