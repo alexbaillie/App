@@ -1,6 +1,8 @@
 package com.example.app
 
+import android.content.Context
 import android.os.Bundle
+import android.util.AttributeSet
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -9,6 +11,8 @@ import androidx.navigation.fragment.findNavController
 import com.example.app.databinding.FragmentFirstBinding
 import android.view.MenuItem
 import android.widget.ImageButton
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
 
 /**
  * A simple [Fragment] subclass as the default destination in the navigation.
@@ -35,12 +39,25 @@ class FirstFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
 
-        binding.imageButton.setOnClickListener {
-            findNavController().navigate(R.id.action_FirstFragment_to_Profile)
-        }
-        binding.button2.setOnClickListener {
-            findNavController().navigate(R.id.action_FirstFragment_to_logIn)
-        }
+
+    }
+
+    override fun onResume() {
+        super.onResume()
+
+        val trialViewModel = ViewModelProvider(requireActivity()).get(VM::class.java)
+
+        trialViewModel.isRegistered.observe(viewLifecycleOwner, Observer {
+            if (it){
+                binding.imageButton.setOnClickListener {
+                    findNavController().navigate(R.id.action_FirstFragment_to_logIn)
+                }
+            } else {
+                binding.imageButton.setOnClickListener {
+                    findNavController().navigate(R.id.action_FirstFragment_to_Profile)
+                }
+            }
+        })
     }
 
     override fun onDestroyView() {

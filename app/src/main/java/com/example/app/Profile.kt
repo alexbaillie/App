@@ -6,6 +6,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.example.app.databinding.ProfileBinding
 import com.google.firebase.firestore.ktx.firestore
@@ -43,6 +45,10 @@ class Profile : Fragment(){
 
             val newUser = Account(userName, email, password)
             newUser.register()
+
+            val trialViewModel = ViewModelProvider(requireActivity()).get(VM::class.java)
+            trialViewModel.addAcc(newUser)
+            trialViewModel.registerUser()
 
 
             // action is actually the inverse of its name
