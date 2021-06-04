@@ -14,8 +14,6 @@ class Account(name: String?, email: String?, password: String?){
     var userRegistered = false
     val db = Firebase.firestore
 
-
-
     fun register() {
         val user = hashMapOf(
             "Name" to accountName,

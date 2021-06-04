@@ -39,7 +39,6 @@ class LogIn : Fragment(){
             val password: String = binding.Password.text.toString()
 
 
-
             // action is actually the inverse of its name
             findNavController().navigate(R.id.action_logIn_to_FirstFragment)
         }

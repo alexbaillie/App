@@ -1,6 +1,5 @@
 package com.example.app
 
-
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -14,9 +13,7 @@ import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 
 
-
-class Profile : Fragment(){
-
+class Profile : Fragment() {
 
     private var _binding: ProfileBinding? = null
 
@@ -61,4 +58,3 @@ class Profile : Fragment(){
         _binding = null
     }
 }
-
